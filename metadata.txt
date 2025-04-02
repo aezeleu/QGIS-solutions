@@ -1,0 +1,18 @@
+[general]
+name=Year Range Filter
+qgisMinimumVersion=3.22
+description=A plugin to filter layers based on year range
+version=1.0
+author=Your Name
+email=your.email@example.com
+
+about=A plugin that allows filtering QGIS layers based on their year property. Layers without a year property will be hidden.
+
+tracker=http://bugs.example.com
+repository=http://repo.example.com
+homepage=http://example.com
+category=Plugins
+icon=icon.png
+tags=filter,year,range
+deprecated=False
+experimental=False 
