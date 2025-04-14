@@ -75,4 +75,130 @@ If the plugin doesn't appear in QGIS:
 
 ## Support
 
-For issues or questions, please create an issue in the plugin's repository or contact the plugin author. 
+For issues or questions, please create an issue in the plugin's repository or contact the plugin author.
+
+## Development Environment Setup
+
+### Prerequisites
+
+1. Install QGIS 3.22 or higher
+2. Install Python 3.x (same version as used by QGIS)
+3. Install Git (for version control)
+
+### Setting Up the Development Environment
+
+1. **Create a Development Directory**
+   ```bash
+   mkdir qgis_plugins_dev
+   cd qgis_plugins_dev
+   ```
+
+2. **Clone the Repository**
+   ```bash
+   git clone [your-repository-url] year_range_filter
+   cd year_range_filter
+   ```
+
+3. **Create a Symbolic Link to QGIS Plugins Directory**
+   - Windows (Run as Administrator):
+     ```bash
+     mklink /D "C:\Users\[YourUsername]\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\year_range_filter" "D:\path\to\your\development\year_range_filter"
+     ```
+   - Linux:
+     ```bash
+     ln -s /path/to/your/development/year_range_filter ~/.local/share/QGIS/QGIS3/profiles/default/python/plugins/year_range_filter
+     ```
+   - macOS:
+     ```bash
+     ln -s /path/to/your/development/year_range_filter ~/Library/Application\ Support/QGIS/QGIS3/profiles/default/python/plugins/year_range_filter
+     ```
+
+4. **Set Up Python Virtual Environment (Optional but Recommended)**
+   ```bash
+   python -m venv venv
+   # Windows:
+   .\venv\Scripts\activate
+   # Linux/macOS:
+   source venv/bin/activate
+   ```
+
+5. **Install Development Dependencies**
+   ```bash
+   pip install pytest pytest-qt
+   ```
+
+### Testing the Plugin
+
+1. **Enable Plugin Reloading**
+   - Open QGIS
+   - Go to Settings → Options → Python
+   - Check "Enable plugin reloading"
+   - Click OK and restart QGIS
+
+2. **Load the Plugin**
+   - Go to Plugins → Manage and Install Plugins
+   - Find "Year Range Filter" in the list
+   - Check the box to enable it
+
+3. **Test the Plugin**
+   - Create test layers with year properties
+   - Use the plugin to filter layers
+   - Verify the filtering behavior
+
+### Development Workflow
+
+1. **Make Changes**
+   - Edit the plugin files in your development directory
+   - Changes will be automatically reflected in QGIS if plugin reloading is enabled
+
+2. **Test Changes**
+   - Restart QGIS if needed
+   - Test the modified functionality
+   - Check for any errors in the QGIS Python console
+
+3. **Debugging**
+   - Open the QGIS Python console (Plugins → Python Console)
+   - Use print statements in your code for debugging
+   - Check the QGIS log for error messages
+
+4. **Version Control**
+   ```bash
+   git add .
+   git commit -m "Your commit message"
+   git push
+   ```
+
+### Common Issues and Solutions
+
+1. **Plugin Not Loading**
+   - Check the QGIS Python console for error messages
+   - Verify the symbolic link is correctly set up
+   - Ensure all required files are present
+
+2. **Changes Not Reflecting**
+   - Make sure plugin reloading is enabled
+   - Try restarting QGIS
+   - Check file permissions
+
+3. **Python Version Mismatch**
+   - Ensure you're using the same Python version as QGIS
+   - Check QGIS Python version in the Python console:
+     ```python
+     import sys
+     print(sys.version)
+     ```
+
+### Recommended Development Tools
+
+1. **Code Editor**
+   - VS Code with Python extension
+   - PyCharm
+   - Any Python IDE of your choice
+
+2. **Version Control**
+   - Git
+   - GitHub/GitLab for remote repository
+
+3. **Testing**
+   - pytest for unit testing
+   - QGIS Python console for debugging 
